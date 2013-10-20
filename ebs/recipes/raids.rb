@@ -69,7 +69,7 @@ node.set[:ebs][:raids].each do |raid_device, options|
     options 'noatime'
     pass 0
     not_if do
-      File.read('/etc/mtab').split("\n").any? do |line| 
+      File.read('/etc/fstab').split("\n").any? do |line| 
         line.match(" #{options[:mount_point]} ")
       end
     end
